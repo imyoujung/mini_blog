@@ -8,7 +8,7 @@ import data from "../../data.json";
 
 const Wrapper = styled.div`
     padding: 16px;
-    width: calc(100% - 32px);
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -29,6 +29,7 @@ const PostContainer = styled.div`
     padding: 8px 16px;
     border: 1px solid grey;
     border-radius: 8px;
+    background: #fff;
 `;
 
 const TitleText = styled.p`
@@ -43,8 +44,9 @@ const ContentText = styled.p`
 `;
 
 const CommentLabel = styled.p`
-    font-size: 16px;
-    font-weight: 500;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
 `;
 
 function PostViewPage(props) {
@@ -54,6 +56,7 @@ function PostViewPage(props) {
   const post = data.find((item) => {
     return item.id == postId;
   });
+  console.log(post)
 
   const [comment, setComment] = useState("");
 
@@ -75,7 +78,7 @@ function PostViewPage(props) {
         <CommentList comments={post.comments} />
 
         <TextInput
-          height={40}
+          height={50}
           value={comment}
           onChange={(event) => {
             setComment(event.target.value);
@@ -83,9 +86,6 @@ function PostViewPage(props) {
         />
         <Button
           title="댓글 작성하기"
-          onClick={() => {
-            navigate("/");
-          }}
         />
       </Container>
     </Wrapper>

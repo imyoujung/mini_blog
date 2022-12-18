@@ -6,7 +6,7 @@ import Button from "../ui/Button";
 
 const Wrapper = styled.div`
     padding: 16px;
-    width: calc(100% - 32px);
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -33,7 +33,7 @@ function PostWritePage(props) {
     <Wrapper>
       <Container>
         <TextInput
-          height={20}
+          height={50}
           value={title}
           onChange={(event) => {
             setTitle(event.target.value);
